@@ -1,0 +1,16 @@
+#! /bin/sh
+
+PATH=$PATH:.
+export PATH
+
+echo Any output from any test indicates an anomaly worth investigating
+for x in run-*
+do
+	case $x in
+	$0)	;;
+	*.orig|*~) ;;
+	*)	echo $x ; sh $x ;;
+	esac
+done
+
+exit 0

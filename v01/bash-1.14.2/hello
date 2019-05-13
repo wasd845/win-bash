@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <windows.h>
+
+main(int argc, const char * const * argv)
+{
+	STARTUPINFOA cstart ;
+	PROCESS_INFORMATION pstart;
+	int i,j ;
+	int exec_Inherit = 0 ;
+	int exec_Flags =  CREATE_NEW_CONSOLE ;
+
+	memset(&cstart,0,sizeof(STARTUPINFO));
+	cstart.cb = sizeof(STARTUPINFO);
+        cstart.hStdInput = stdin ;
+        cstart.dwFlags = STARTF_USESTDHANDLES;
+        cstart.hStdOutput = stdout ;
+        cstart.dwFlags = STARTF_USESTDHANDLES;
+        cstart.hStdError = stderr ;
+        cstart.dwFlags = STARTF_USESTDHANDLES;
+
+        exec_Inherit = TRUE;
+
+
+
+	printf("Hello.\n");
+	for (i = 0 ; i < argc; i++) printf("%d  `%s'\n",i,argv[i]);
+
+	printf("Creating a new console\n");
+
+	if (!CreateProcess(0,"D:/test/CONSOL.EXE",0,0,exec_Inherit,exec_Flags,
+		0,0,&cstart,&pstart)) 
+		printf("Creation failed\n");
+	for (i = 0 ; i < 10000000; i++) j+=i ;
+	printf("Created console\n") ;
+}

@@ -1,0 +1,8 @@
+open mtbmath
+
+cd c:/bash_nt/v01/bash-1.14.2/lib/glob
+
+send fnmatch.c
+send fnmatch.h
+send glob.c
+send ndir.h

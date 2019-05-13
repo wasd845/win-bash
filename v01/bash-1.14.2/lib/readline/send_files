@@ -1,0 +1,31 @@
+open mtbmath
+
+cd c:/bash_nt/v01/bash-1.14.2/lib/readline
+
+send ansi_stdlib.h
+send bind.c
+send chardefs.h
+send complete.c
+send display.c
+send emacs_keymap.c
+send funmap.c
+send history.c
+send history.h
+send isearch.c
+send keymaps.c
+send keymaps.h
+send memalloc.h
+send parens.c
+send posixstat.h
+send readline.c
+send readline.h
+send rlconf.h
+send rldefs.h
+send rltty.c
+send search.c
+send signals.c
+send tilde.c
+send tilde.h
+send vi_keymap.c
+send vi_mode.c
+send xmalloc.c

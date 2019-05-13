@@ -1,0 +1,134 @@
+This file documents the bugs fixed between this release, bash-1.14.2,
+and the last bash release, 1.14.1.
+
+1.  Bugs fixed in Bash
+
+a.  Command name completion inside command substitution constructs now
+    works.
+
+b.  Command word completion now performs tilde expansion to avoid passing
+    filenames with tildes to stat().
+
+c.  Fixed a bug in brace completion that caused core dumps when there was
+    only one completion.
+
+d.  Fixed `getopts' to work when $# > 9
+
+e.  Fixed a typo in getopts which causes OPTIND to be set to bad values.
+
+f.  Fixed a bug in `read' which left stray escape characters in strings when
+    reading \<newline>
+
+g.  Fixed `read' to dequote strings before assigning them to variables if any
+    backslash-escaped characters were read.
+
+h.  Fixed a memory leak in `read' when no variable names were supplied.
+
+i.  Changed calls to signal() that installed a handler to set_signal_handler().
+
+j.  Fixed a Makefile problem so that $(CC) is passed to makes in all library
+    subdirectories.
+
+k.  Fixed a typo in cpp-Makefile which prevented `bashbug' from installing
+
+l.  Fixed a bug in the input buffering code which occasionally caused the
+    fd bash was using to read a script to be closed unexpectedly.
+
+m.  Fixed a bug in the job control code which caused core dumps when commands
+    were run from a SIGCHLD trap
+
+n.  Fixed a bug in the job control code so that script jobs dying due to
+    SIGINT don't make the shell think it got a SIGINT also
+
+o.  Fixes to machine descriptions:  SunOS, SVR4.2, SCO, hpux_8, hpux_9, SVR4,
+    RiscOS, DG AViiON
+
+p.  New machine descriptions: tahoe/4.3BSD, m68k/NetBSD, i860/SVR4,
+    tandem/SVR3
+
+q.  Fixed an incorrect declaration of sbrk() on hpux_9
+
+r.  Added a test for OPENDIR_NOT_ROBUST to the `portbash' scripts
+
+s.  Fixed a redundant declaration of sys_siglist on FreeBSD
+
+t.  Fixed a bug in the variable assignment code which tried to expand tildes
+    in some contexts even if they were quoted
+
+u.  Fixed a bug in process substitution that manifested itself on systems
+    with /dev/fd and caused the file descriptor to be closed inappropriately
+
+v.  Added code to `support/mksysdefs' to compensate for problems in some
+    versions of i386 SVR4.2
+
+w.  Fixes to the makefiles to make relative paths in `srcdir' work correctly
+
+x.  Fixed an off-by-one error in the `test' builtin /dev/fd emulation
+
+y.  Fixed a problem with function execution that prevented `break' and
+    `continue' from working across `return'
+
+z.  Fixed a problem with `bind' that caused problems with readline when
+    executed from ~/.bashrc.
+
+aa. Fixed `support/mksysdefs' to run the correct version of `uname' on SCO
+
+2.  Bugs fixed in Readline
+
+a.  Signal handling was reworked to save and restore the signal mask and
+    flags on Posix.1 systems
+
+b.  Fixed a problem with skipping comment lines while reading the inputrc
+    file
+
+c.  Fixed a problem with quoted word break characters in the completion code
+
+d.  Fixes to the display line wrapping code when using prompts with
+    invisible characters
+
+e.  Fixed problems with horizontal scrolling when using prompts with
+    invisible characters
+
+f.  A few problems which made the display code slower than necessary have
+    been fixed.
+
+g.  Fixed a problem with redisplay after a SIGWINCH was received, especially
+    with multi-line prompts.
+
+h.  The readline texinfo manual was thoroughly overhauled and all known
+    mistakes fixed.
+
+i.  Fixed a off-by-one error in the history buffer allocation code that
+    sometimes caused the GNU malloc to abort
+
+j.  Fixed a typo in the typedef declaring the history state structure
+
+k.  Fixed readline to bind the arrow keys to default values after the
+    inputrc and termcap capabilities are tested, not before
+
+l.  Functions missing correct prologues were fixed.
+
+m.  Fixed a bug that made readline misbehave after a command's output was
+    flushed with ^O
+
+n.  Fixed the tty code to call the functions that reset the meta key
+    and keypad before putting the terminal driver back into icanon mode
+
+3.  New Features in Bash
+
+[none]
+
+4.  New Features in Readline
+
+a.  `insert-last-argument' now a standard part of the readline library
+
+b.  Quoting of filenames by the completer may now be disabled by completion
+    functions.
+
+c.  Readline now uses the last column on terminals supporting autowrap
+
+d.  Readline now sets up the 8-bit input and output defaults based on the
+    value of $LC_CTYPE
+
+e.  `history_stifled' variable replaced with history_is_stifled() function
+

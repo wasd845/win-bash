@@ -1,0 +1,7 @@
+open mtbmath
+
+cd c:/bash_nt/v01/bash-1.14.2/lib/tilde
+
+send memalloc.h
+send tilde.c
+send tilde.h
