@@ -1,0 +1,19 @@
+Howto compile this bash for Windows?
+
+Replace _0.6 by the version you downloaded.
+
+compiling with mingw (I used mingw 3.2):
+
+> unzip win-bash_0.6.zip
+> cd win-bash_0.6
+> make clean
+> make
+
+compiling with Visual C/C++ (I tested it with Visual C/C++ 6):
+
+> unzip win-bash_0.6.zip
+> cd win-bash_0.6
+> clean.bat
+> make_vc.bat
+
+=> find your bash.exe in v01/bash-1.14.2/Bash/WinDebug

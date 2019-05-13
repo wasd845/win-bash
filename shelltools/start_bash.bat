@@ -1,0 +1,16 @@
+REM
+
+@echo off
+
+SETLOCAL
+
+SET Path=.;%CD%;%SystemRoot%;%SystemRoot%\System32
+SET PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH
+
+SET PATHBUGWORKAROUND=%PATH:\=/%
+SET XPATHBUGWORKAROUND=%PATHBUGWORKAROUND:;=:%
+
+%CD%\bash.exe -noprofile -norc -c %*
+
+
+ENDLOCAL
